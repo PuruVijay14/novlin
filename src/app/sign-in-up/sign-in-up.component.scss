@@ -1,0 +1,23 @@
+:host,
+div.container {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+div.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#logo-container {
+  display: flex;
+  height: auto;
+  padding: 20px;
+  background: #6020ea;
+  border-radius: 50%;
+  align-items: center;
+  width: fit-content;
+}

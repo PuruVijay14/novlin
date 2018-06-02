@@ -1,0 +1,27 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" mode="over">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/login">Login</a>
+      <a mat-list-item routerLink="/signup">Sign Up</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content (scroll)="toggleToolbar($event)">
+    <!-- <button (click)="appBarState = appBarState == 'visible' ? 'hidden' : 'visible'">Hello</button> -->
+    <router-outlet></router-outlet>
+    <mat-toolbar [@appearence]="appBarState" [style.transform]="'translateY(100%)'" id="app-bar" color="primary">
+      <button [matTooltip]="tooltipText" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="adaptiveAction()">
+        <mat-icon aria-label="Side nav toggle icon">{{icon}}</mat-icon>
+      </button>
+      <span>{{title}}</span>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <svg>
+  <defs>
+    <clipPath id="cross" clipPathUnits="objectBoundingBox">
+      <path d="M -0.4 -0.2 L 0.3 -0.2 M 0.4 -.2 A 0.05 0.7, 0, 1, 0, 0.5 -.2 L 1.4 -0.2 L 1.4 1.4 L -0.2 1.4  z" />
+    </clipPath>
+  </defs>
+</svg> -->
