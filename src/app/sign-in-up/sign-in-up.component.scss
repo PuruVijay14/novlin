@@ -1,3 +1,4 @@
+@import "~@angular/material/theming";
 :host,
 div.container {
   height: 100%;
@@ -12,12 +13,21 @@ div.container {
   align-items: center;
 }
 
-#logo-container {
-  display: flex;
-  height: auto;
-  padding: 20px;
-  background: #6020ea;
-  border-radius: 50%;
-  align-items: center;
-  width: fit-content;
+#auth-buttons {
+  height: 200px;
+  width: 200px;
+  mat-icon {
+    transform: scale(4, 4);
+  }
 }
+
+// .google {
+//   height: 100vmin;
+//   width: 100vmin;
+//   background: #6020ea;
+//   border-radius: 100%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   @include mat-elevation(8);
+// }

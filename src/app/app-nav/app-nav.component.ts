@@ -1,14 +1,16 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
 import {
-  BreakpointObserver,
-  Breakpoints,
-  BreakpointState
-} from "@angular/cdk/layout";
-import { Observable } from "rxjs";
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  TemplateRef
+} from "@angular/core";
 import { appearence } from "../animations/app-bar";
 import { AppBarService } from "../services/app-bar.service";
 import { Router } from "@angular/router";
-import { MatDrawer } from "@angular/material";
+import { MatDrawer, MatToolbarRow } from "@angular/material";
+import { AuthService } from "../services/auth.service";
+import { NgStyle } from "@angular/common";
 
 @Component({
   selector: "app-nav",
@@ -22,6 +24,9 @@ export class AppNavComponent implements OnInit {
   /**Icon on navbar */
   icon = "menu";
 
+  /** Whether the icon is hidden */
+  iconHidden = false;
+
   /** title of toolbar */
   title = "Welcome!";
 
@@ -31,11 +36,41 @@ export class AppNavComponent implements OnInit {
   /** Drawer */
   @ViewChild("drawer") drawer: MatDrawer;
 
-  constructor(private appBarService: AppBarService, private router: Router) {}
+  /** Title row */
+  @ViewChild("titleRow") titleRowRef: ElementRef;
+
+  /** App Bar */
+  @ViewChild("appBar") appBarRef: ElementRef;
+
+  styles = {
+    appBar: {
+      "bottom.px": 0
+    }
+  };
+
+  constructor(
+    public appBarService: AppBarService,
+    public router: Router,
+    private authService: AuthService
+  ) {}
+
+  handleNav() {
+    // App bar
+    const appBar = document.querySelector("#app-bar");
+
+    const firstRowHeight = this.titleRowRef.nativeElement.offsetHeight;
+    const appBarHeight = appBar.clientHeight;
+
+    this.styles.appBar["bottom.px"] = -1 * (appBarHeight - firstRowHeight);
+
+    this.iconHidden = this.iconHidden ? false : true;
+  }
 
   ngOnInit() {
     this.appBarState = "visible";
     this.adaptiveNavbar();
+    this.handleNav();
+    this.adaptiveAction();
   }
 
   toggleToolbar($event: Event) {
@@ -52,19 +87,19 @@ export class AppNavComponent implements OnInit {
     this.position = scroll;
   }
 
-  adaptiveAction() {
-    // this.appBarService.state$.subscribe(data => {
+  async adaptiveAction() {
+    // this.appBarService.state$.subscribe(console.log);
+    // return await this.appBarService.state$.subscribe(data => {
     //   switch (data.id) {
     //     case "auth":
     //       this.backToHome();
     //       break;
 
     //     default:
-    //       this.drawer.toggle();
+    //       this.handleNav();
     //       break;
     //   }
     // });
-    this.appBarService.state$.subscribe(console.log);
   }
   backToHome() {
     this.router.navigate([""]);

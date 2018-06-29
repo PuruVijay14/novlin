@@ -1,8 +1,8 @@
 {
-  "name": "novlin",
-  "short_name": "novlin",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "Novlin",
+  "short_name": "Novlin",
+  "theme_color": "#6200ea",
+  "background_color": "#fff",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",

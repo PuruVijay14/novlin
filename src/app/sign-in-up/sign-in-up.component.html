@@ -1,6 +1,18 @@
-<div class="container" matRipple matRippleColor="rgba(98,0,234)" matRippleRadius="350" matRippleCentered matRippleSpeedFactor="1.2">
+<!-- <div class="container" matRipple matRippleColor="rgba(98,0,234)" matRippleRadius="350" matRippleCentered matRippleSpeedFactor="1.2">
   <h3>Log in with your Google account</h3>
   <img src="../../assets/auth/google-icon.svg" height="20%" width="20%" />
   <br>
   <button mat-button color="primary">I dun hav a google account</button>
+</div> -->
+<div class="container">
+  <div class="message">
+    <h2>
+      {{router.url == '/login' ? 'Log In' : 'Sign up'}} with your Google Account
+    </h2>
+  </div>
+  <div>
+    <button (click)="auth.signIn()" id="auth-buttons" mat-icon-button>
+      <mat-icon svgIcon="google"></mat-icon>
+    </button>
+  </div>
 </div>

@@ -18,3 +18,17 @@ h6 {
   font-weight: 400;
   font-family: 'Roboto Slab';
 }
+
+* {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+::selection {
+  background: rgba(98, 0, 234, 0.25);
+  /* WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+  background: rgba(98, 0, 234, 0.25);
+  /* Gecko Browsers */
+}

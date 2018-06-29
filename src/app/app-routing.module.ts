@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { SignInUpComponent } from "./sign-in-up/sign-in-up.component";
 import { IndexComponent } from "./index/index.component";
+import { CreateUsernameComponent } from "./create-username/create-username.component";
 
 const routes: Routes = [
   {
@@ -29,6 +30,13 @@ const routes: Routes = [
     path: "",
     redirectTo: "home",
     pathMatch: "full"
+  },
+  {
+    path: "createusername",
+    component: CreateUsernameComponent,
+    data: {
+      title: "Select Username"
+    }
   }
 ];
 

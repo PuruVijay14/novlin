@@ -1,6 +1,9 @@
 import { Component } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { filter, map, mergeMap } from "rxjs/operators";
+import { Title, DomSanitizer } from "@angular/platform-browser";
+import { MatIconRegistry } from "@angular/material";
+import { AngularFireAuth } from "angularfire2/auth";
 
 @Component({
   selector: "app-root",
@@ -8,8 +11,17 @@ import { filter, map, mergeMap } from "rxjs/operators";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor (
+    private router: Router,
+    private route: ActivatedRoute,
+    private title: Title,
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer,
+    private afAuth: AngularFireAuth
+  ) {
     this.manageTitle();
+    this.addSVGcustomIcons();
+    this.afAuth.user.subscribe(console.log);
   }
 
   /**
@@ -28,6 +40,14 @@ export class AppComponent {
         filter(route => route.outlet === "primary"),
         mergeMap(route => route.data)
       )
-      .subscribe(event => (document.title = event["title"]));
+      .subscribe(event => this.title.setTitle(event["title"]));
+  }
+
+  /** Add the SVg icons */
+  addSVGcustomIcons() {
+    this.matIconRegistry.addSvgIcon(
+      `google`,
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/auth/google.svg")
+    );
   }
 }
