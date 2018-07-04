@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "angularfire2/auth";
 import * as firebase from "firebase/app";
 import { Router } from "@angular/router";
+import { UserCredential } from "@firebase/auth-types";
 
 @Injectable({
   providedIn: "root"
@@ -12,7 +13,7 @@ export class AuthService {
   async signIn() {
     await this.afAuth.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
     try {
-      const data = await this.afAuth.auth.signInWithPopup(
+      const data: UserCredential = await this.afAuth.auth.signInWithPopup(
         new firebase.auth.GoogleAuthProvider()
       );
 
@@ -21,17 +22,19 @@ export class AuthService {
 
       /** Set the localstorages */
       this.setLocalData(data);
-      /** Redirect the user to create the username */
-      this.router.navigate(["createusername"]);
+
       if (data.additionalUserInfo.isNewUser) {
-        // The lad just signed up, redirect to user selection
+        /** Redirect the user to create the username */
+        this.router.navigate(["createusername"]);
+      } else {
+        this.router.navigate([""]);
       }
     } catch (error) {
       console.error(error);
     }
   }
 
-  private setLocalData(data: any) {
+  private setLocalData(data) {
     localStorage.setItem("uid", data.user.uid);
     localStorage.setItem("name", data.user.displayName);
     localStorage.setItem("email", data.user.email);

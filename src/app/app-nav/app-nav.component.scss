@@ -10,7 +10,7 @@
 }
 
 #app-bar {
-  // background: white;
+  background: white;
   position: fixed;
   bottom: 0;
   width: calc(1.618/2.618 * 100%);
@@ -33,4 +33,15 @@
     width: 100%;
     border-radius: 0;
   }
+  app-fab {
+    bottom: 29px !important;
+  }
+}
+
+app-fab {
+  position: fixed;
+  z-index: 1618;
+  bottom: 37px;
+  left: 50%;
+  margin-left: -24px;
 }

@@ -1,0 +1,83 @@
+[debug] [2018-07-04T10:52:07.918Z] ----------------------------------------------------------------------
+[debug] [2018-07-04T10:52:07.920Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Dr. Sandeep Vijay\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase init functions
+[debug] [2018-07-04T10:52:07.921Z] CLI Version:   3.18.5
+[debug] [2018-07-04T10:52:07.921Z] Platform:      win32
+[debug] [2018-07-04T10:52:07.921Z] Node Version:  v9.5.0
+[debug] [2018-07-04T10:52:07.921Z] Time:          Wed Jul 04 2018 16:22:07 GMT+0530 (India Standard Time)
+[debug] [2018-07-04T10:52:07.921Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-07-04T10:52:08.029Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] [2018-07-04T10:52:08.029Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Dr. Sandeep Vijay\Desktop\projects\novlin
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2018-07-04T10:52:20.339Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-07-04T10:52:20.340Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/TI_h6dEYyPrJ-vKAfdHMvGiMgzcsOPmE4WZl6BO70IA',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Wed Jul 04 2018 16:22:20 GMT+0530 (India Standard Time)
+[debug] [2018-07-04T10:52:20.891Z] <<< HTTP RESPONSE 200
+[debug] [2018-07-04T10:52:20.944Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects  
+  
+ Wed Jul 04 2018 16:22:20 GMT+0530 (India Standard Time)
+[debug] [2018-07-04T10:52:22.608Z] <<< HTTP RESPONSE 200
+[info] i  .firebaserc already has a default project, skipping
+[info] 
+=== Functions Setup
+[info] 
+[info] A functions directory will be created in your project with a Node.js
+[info] package pre-configured. Functions can be deployed with firebase deploy.
+[info] 
+[debug] [2018-07-04T10:52:22.612Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-07-04T10:52:22.612Z] > authorizing via signed-in user
+[debug] [2018-07-04T10:52:22.613Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-07-04T10:52:22.613Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/TI_h6dEYyPrJ-vKAfdHMvGiMgzcsOPmE4WZl6BO70IA',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Wed Jul 04 2018 16:22:22 GMT+0530 (India Standard Time)
+[debug] [2018-07-04T10:52:22.922Z] <<< HTTP RESPONSE 200
+[debug] [2018-07-04T10:52:22.978Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/novlin-scratch  
+  
+ Wed Jul 04 2018 16:22:22 GMT+0530 (India Standard Time)
+[debug] [2018-07-04T10:52:24.042Z] <<< HTTP RESPONSE 200
+[debug] [2018-07-04T10:52:24.043Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/novlin-scratch/tokens  
+  
+ Wed Jul 04 2018 16:22:24 GMT+0530 (India Standard Time)
+[debug] [2018-07-04T10:52:25.191Z] <<< HTTP RESPONSE 200
+[debug] [2018-07-04T10:52:25.196Z] >>> HTTP REQUEST PATCH https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/novlin-scratch?updateMask=usageSettings  
+ { usageSettings: { consumerEnableStatus: 'ENABLED' } } 
+ Wed Jul 04 2018 16:22:25 GMT+0530 (India Standard Time)
+[debug] [2018-07-04T10:52:25.196Z] >>> HTTP REQUEST PATCH https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/novlin-scratch?updateMask=usageSettings  
+ { usageSettings: { consumerEnableStatus: 'ENABLED' } } 
+ Wed Jul 04 2018 16:22:25 GMT+0530 (India Standard Time)
+[debug] [2018-07-04T10:52:28.320Z] <<< HTTP RESPONSE 200
+[debug] [2018-07-04T10:52:30.870Z] <<< HTTP RESPONSE 200
+[info] +  Wrote functions/package.json
+[info] +  Wrote functions/tslint.json
+[info] +  Wrote functions/tsconfig.json
+[info] +  Wrote functions/src/index.ts
