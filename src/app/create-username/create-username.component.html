@@ -1,6 +1,6 @@
 <div class="container">
-  <h2>Create Username</h2>
+  <h2 *ngIf="!headingHidden">Create Username</h2>
   <mat-form-field>
-    <input autofocus matInput >
+    <input (keyup.enter)="log($event)" autofocus matInput [placeholder]="headingHidden ? 'Enter Username': ''">
   </mat-form-field>
 </div>

@@ -13,22 +13,12 @@ export class AuthService {
   async signIn() {
     await this.afAuth.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
     try {
-      const data: UserCredential = await this.afAuth.auth.signInWithPopup(
+      const data = this.afAuth.auth.signInWithRedirect(
         new firebase.auth.GoogleAuthProvider()
       );
 
       /**______________________ONLY FOR TESTING  ===> REMOVE________________________ */
       console.log(data);
-
-      /** Set the localstorages */
-      this.setLocalData(data);
-
-      if (data.additionalUserInfo.isNewUser) {
-        /** Redirect the user to create the username */
-        this.router.navigate(["createusername"]);
-      } else {
-        this.router.navigate([""]);
-      }
     } catch (error) {
       console.error(error);
     }
@@ -41,5 +31,16 @@ export class AuthService {
     localStorage.setItem("photo", data.user.photoURL);
     localStorage.setItem("newUser", data.additionalUserInfo.isNewUser);
     localStorage.setItem("emailVerified", data.user.emailVerified);
+  }
+
+  afterLogin(data: UserCredential) {
+    this.setLocalData(data);
+
+    if (data.additionalUserInfo.isNewUser) {
+      /** Redirect the user to create the username */
+      this.router.navigate(["createusername"]);
+    } else {
+      this.router.navigate([""]);
+    }
   }
 }
