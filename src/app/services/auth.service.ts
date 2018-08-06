@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "angularfire2/auth";
+import { AngularFirestore } from "angularfire2/firestore";
 import * as firebase from "firebase/app";
 import { Router } from "@angular/router";
 import { UserCredential } from "@firebase/auth-types";
@@ -8,7 +9,11 @@ import { UserCredential } from "@firebase/auth-types";
   providedIn: "root"
 })
 export class AuthService {
-  constructor(private afAuth: AngularFireAuth, private router: Router) {}
+  constructor(
+    private afAuth: AngularFireAuth,
+    private router: Router,
+    private afStore: AngularFirestore
+  ) {}
 
   async signIn() {
     await this.afAuth.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
@@ -30,12 +35,9 @@ export class AuthService {
     localStorage.setItem("email", data.user.email);
     localStorage.setItem("photo", data.user.photoURL);
     localStorage.setItem("newUser", data.additionalUserInfo.isNewUser);
-    localStorage.setItem("emailVerified", data.user.emailVerified);
   }
-
-  afterLogin(data: UserCredential) {
+  async afterLogin(data: UserCredential) {
     this.setLocalData(data);
-
     if (data.additionalUserInfo.isNewUser) {
       /** Redirect the user to create the username */
       this.router.navigate(["createusername"]);

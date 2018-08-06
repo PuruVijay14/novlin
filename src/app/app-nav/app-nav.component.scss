@@ -45,3 +45,9 @@ app-fab {
   left: 50%;
   margin-left: -24px;
 }
+
+#progressBar {
+  position: fixed;
+  z-index: 9997;
+  width: 100%;
+}

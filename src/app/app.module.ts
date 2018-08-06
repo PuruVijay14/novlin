@@ -9,7 +9,8 @@ import {
   MatSidenavModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatInputModule
+  MatInputModule,
+  MatProgressBarModule
 } from "@angular/material";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -24,6 +25,8 @@ import { IndexComponent } from "./index/index.component";
 import { SignInUpComponent } from "./sign-in-up/sign-in-up.component";
 import { CreateUsernameComponent } from './create-username/create-username.component';
 import { FabComponent } from './fab/fab.component';
+import { UniversalProgressComponent } from './universal-progress/universal-progress.component';
+import { AngularFirestoreModule } from "../../node_modules/angularfire2/firestore";
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import { FabComponent } from './fab/fab.component';
     SignInUpComponent,
     IndexComponent,
     CreateUsernameComponent,
-    FabComponent
+    FabComponent,
+    UniversalProgressComponent
   ],
   imports: [
     BrowserModule,
@@ -51,8 +55,10 @@ import { FabComponent } from './fab/fab.component';
     MatTooltipModule,
     MatRippleModule,
     MatInputModule,
+    MatProgressBarModule,
     HttpClientModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
