@@ -11,7 +11,8 @@ export const environment = {
     projectId: "novlin-scratch",
     storageBucket: "novlin-scratch.appspot.com",
     messagingSenderId: "710099850782"
-  }
+  },
+  backendURL: `http://localhost:5000/novlin-scratch/us-central1/`
 };
 
 /*

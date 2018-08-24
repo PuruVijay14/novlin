@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
   addSVGcustomIcons() {
     this.matIconRegistry.addSvgIcon(
       `google`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/auth/google.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/auth/google-icon.svg")
     );
   }
    getRandomRGBValue() {

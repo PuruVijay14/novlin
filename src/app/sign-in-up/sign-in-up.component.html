@@ -11,7 +11,8 @@
     </h2>
   </div>
   <div>
-    <button (click)="auth.signIn()" id="auth-buttons" mat-icon-button>
+    <button (click)="univProgress.progressState$.next({id: 'authSignInClicked', payload: null});auth.signIn()" id="auth-buttons"
+      mat-icon-button>
       <mat-icon svgIcon="google"></mat-icon>
     </button>
   </div>

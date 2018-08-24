@@ -9,22 +9,21 @@
   box-shadow: 3px 0 6px rgba(0, 0, 0, .24);
 }
 
+$border-radius: 8px;
+
 #app-bar {
   background: white;
   position: fixed;
-  bottom: 0;
-  width: calc(1.618/2.618 * 100%);
   right: 0;
   left: 0;
   margin-right: auto;
   margin-left: auto;
-  @include mat-elevation(12);
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  @include mat-elevation(8);
+
 }
 
 #app-bar span {
-  font-family: 'Roboto Slab';
+  font-family: 'Roboto';
   font-weight: 400;
 }
 

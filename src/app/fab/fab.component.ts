@@ -32,7 +32,7 @@ export class FabComponent implements OnInit {
 
         switch (url) {
           case "/createusername":
-            this.state = "apparated";
+            this.state = "disapparated";
             break;
 
           default:

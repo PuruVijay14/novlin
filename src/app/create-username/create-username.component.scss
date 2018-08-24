@@ -10,3 +10,10 @@ div.container {
   justify-content: center;
   align-items: center;
 }
+
+#submit-button {
+  position: fixed;
+  bottom: 4.7%;
+  right: 28%;
+  z-index: 9999999;
+}

@@ -24,7 +24,16 @@ const routes: Routes = [
     component: IndexComponent,
     data: {
       title: "Home"
-    }
+    },
+    children: [
+      {
+        path: "welcome",
+        component: IndexComponent,
+        data: {
+          title: "Welcome!"
+        }
+      }
+    ]
   },
   {
     path: "",

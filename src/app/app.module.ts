@@ -2,7 +2,6 @@ import { LayoutModule } from "@angular/cdk/layout";
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import {
-  MatButtonModule,
   MatIconModule,
   MatListModule,
   MatRippleModule,
@@ -12,6 +11,7 @@ import {
   MatInputModule,
   MatProgressBarModule
 } from "@angular/material";
+import { MatButtonModule } from "@angular/material/button";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ServiceWorkerModule } from "@angular/service-worker";
@@ -27,6 +27,7 @@ import { CreateUsernameComponent } from './create-username/create-username.compo
 import { FabComponent } from './fab/fab.component';
 import { UniversalProgressComponent } from './universal-progress/universal-progress.component';
 import { AngularFirestoreModule } from "../../node_modules/angularfire2/firestore";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -58,9 +59,11 @@ import { AngularFirestoreModule } from "../../node_modules/angularfire2/firestor
     MatProgressBarModule,
     HttpClientModule,
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule.enablePersistence(),
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

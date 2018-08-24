@@ -6,22 +6,23 @@
       <a mat-list-item routerLink="/signup">Sign Up</a>
     </mat-nav-list>
   </mat-sidenav>
+  <mat-toolbar [ngStyle]="styles.appBar" [@appearence]="appBarState" [style.transform]="'translateY(100%)'" id="app-bar" color=""
+    #appBar>
+    <mat-toolbar-row #titleRow>
+      <button [matTooltip]="'Site Menu'" mat-icon-button (click)="adaptiveAction()">
+        <mat-icon *ngIf="iconHidden">{{icon}}</mat-icon>
+        <mat-icon *ngIf="!iconHidden">clear</mat-icon>
+      </button>
+      <span *ngIf="iconHidden">{{title}}</span>
+      <span *ngIf="!iconHidden">Menu</span>
+    </mat-toolbar-row>
+    <mat-toolbar-row>Hi</mat-toolbar-row>
+  </mat-toolbar>
   <mat-sidenav-content (scroll)="toggleToolbar($event)">
     <app-universal-progress id="progressBar"></app-universal-progress>
     <!-- <button (click)="appBarState = appBarState == 'visible' ? 'hidden' : 'visible'">Hello</button> -->
+
     <router-outlet></router-outlet>
-    <mat-toolbar [ngStyle]="styles.appBar" [@appearence]="appBarState" [style.transform]="'translateY(100%)'" id="app-bar" color=""
-      #appBar>
-      <mat-toolbar-row #titleRow>
-        <button [matTooltip]="'Site Menu'" mat-icon-button (click)="adaptiveAction()">
-          <mat-icon *ngIf="iconHidden">{{icon}}</mat-icon>
-          <mat-icon *ngIf="!iconHidden">clear</mat-icon>
-        </button>
-        <span *ngIf="iconHidden">{{title}}</span>
-        <span *ngIf="!iconHidden">Menu</span>
-      </mat-toolbar-row>
-      <mat-toolbar-row>Hi</mat-toolbar-row>
-    </mat-toolbar>
     <app-fab></app-fab>
   </mat-sidenav-content>
 </mat-sidenav-container>

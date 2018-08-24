@@ -1,6 +1,16 @@
 <div class="container">
-  <h2 *ngIf="!headingHidden">Create Username</h2>
-  <mat-form-field>
-    <input (keyup.enter)="log($event)" autofocus matInput [placeholder]="headingHidden ? 'Enter Username': ''">
-  </mat-form-field>
+  <h1 *ngIf="!headingHidden">Create Username</h1>
+  <form >
+    <mat-form-field>
+      <input (onkeydown)="verifyInput()" [formControl]="userFormControl" [errorStateMatcher]="matcher" #input="matInput" (keyup.enter)="createUser()" autofocus matInput
+        placeholder="">
+        <mat-hint>Ex: ClaryFray6,<br>harry-potter_wand </mat-hint>
+        <mat-error *ngIf="userFormControl.hasError('pattern')">Only a-z 09 and -_ no spaces</mat-error>
+        <mat-error *ngIf="userFormControl.hasError('required')">This field is required</mat-error>
+        <mat-error *ngIf="usernameTaken">Username already exists.</mat-error>
+    </mat-form-field>
+    <button (click)="createUser()" mat-fab id="submit-button">
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+  </form>
 </div>

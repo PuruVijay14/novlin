@@ -7,5 +7,6 @@ export const environment = {
     projectId: "novlin-scratch",
     storageBucket: "novlin-scratch.appspot.com",
     messagingSenderId: "710099850782"
-  }
+  },
+  backendURL: `https://asia-northeast1-novlin-scratch.cloudfunctions.net`
 };
