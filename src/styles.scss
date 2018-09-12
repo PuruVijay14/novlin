@@ -24,11 +24,24 @@ h6 {
 }
 
 ::selection {
-  background: rgba(98, 0, 234, 0.25);
+  background: rgba(98, 0, 238, 0.25);
   /* WebKit/Blink Browsers */
 }
 
 ::-moz-selection {
-  background: rgba(98, 0, 234, 0.25);
+  background: rgba(98, 0, 238, 0.25);
   /* Gecko Browsers */
 }
+
+
+router-outlet ~ * {
+  position: absolute;
+  flex-grow: 1;
+  width: 100%;
+}
+
+
+$mdc-theme-primary: #6300ee; // change primary color example
+$mdc-theme-secondary: #6300ee; // change secondary color example
+
+@import "~@angular-mdc/theme/material";

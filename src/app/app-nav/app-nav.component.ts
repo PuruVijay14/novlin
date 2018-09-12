@@ -10,13 +10,14 @@ import { AppBarService } from "../services/app-bar.service";
 import { Router } from "@angular/router";
 import { MatDrawer, MatToolbarRow } from "@angular/material";
 import { AuthService } from "../services/auth.service";
-import { NgStyle } from "@angular/common";
+import { fadeAnimation } from "../animations/routing";
+import { BreakpointObserver, Breakpoints, BreakpointState } from "@angular/cdk/layout"
 
 @Component({
   selector: "app-nav",
   templateUrl: "./app-nav.component.html",
   styleUrls: ["./app-nav.component.scss"],
-  animations: [appearence]
+  animations: [appearence, fadeAnimation]
 })
 export class AppNavComponent implements OnInit {
   position = 0;
@@ -44,15 +45,19 @@ export class AppNavComponent implements OnInit {
 
   styles = {
     appBar: {
-      "bottom.px": 0
     }
   };
+
+  fabExtended: boolean = false;
+
+  sidenavOpened = true;
 
   constructor(
     public appBarService: AppBarService,
     public router: Router,
-    private authService: AuthService
-  ) {}
+    private authService: AuthService,
+    public breakpointObserver: BreakpointObserver
+  ) { }
 
   handleNav() {
     // App bar
@@ -61,12 +66,22 @@ export class AppNavComponent implements OnInit {
     const firstRowHeight = this.titleRowRef.nativeElement.offsetHeight;
     const appBarHeight = appBar.clientHeight;
 
-    this.styles.appBar["bottom.px"] = -1 * (appBarHeight - firstRowHeight);
+    // this.styles.appBar["bottom.px"] = -1 * (appBarHeight - firstRowHeight);
 
     this.iconHidden = this.iconHidden ? false : true;
   }
 
   ngOnInit() {
+    this.breakpointObserver
+      .observe(Breakpoints.HandsetPortrait)
+      .subscribe((state: BreakpointState) => {
+        if (state.matches) {
+          this.sidenavOpened = false;
+        } else {
+          this.sidenavOpened = true;
+        }
+      });
+
     this.appBarState = "visible";
     this.adaptiveNavbar();
     this.handleNav();

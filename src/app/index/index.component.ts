@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AppBarService } from "../services/app-bar.service";
-import { AngularFireAuth } from "angularfire2/auth";
+import { AngularFireAuth } from "@angular/fire/auth";
 
 @Component({
   selector: "app-index",

@@ -1,19 +1,9 @@
-import { BreakpointObserver, BreakpointState } from "@angular/cdk/layout";
-import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
-import {
-  FormControl,
-  FormGroupDirective,
-  NgForm,
-  Validators
-} from "@angular/forms";
+import { AngularFirestore } from "@angular/fire/firestore";
+import { FormControl, FormGroupDirective, NgForm, Validators } from "@angular/forms";
 import { ErrorStateMatcher } from "@angular/material/core";
 import { Router } from "@angular/router";
-import { AngularFireAuth } from "angularfire2/auth";
-import { AngularFirestore } from "angularfire2/firestore";
 import { take } from "rxjs/operators";
-import { Observable } from "rxjs";
-import { MatInput } from "@angular/material/input";
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {

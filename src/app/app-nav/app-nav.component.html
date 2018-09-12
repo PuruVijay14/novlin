@@ -1,28 +1,28 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" mode="over">
-    <mat-toolbar color="primary">Menu</mat-toolbar>
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" mode="side" [opened]="sidenavOpened">
     <mat-nav-list>
-      <a mat-list-item routerLink="/login">Login</a>
-      <a mat-list-item routerLink="/signup">Sign Up</a>
+      <button mdc-fab [extended]="fabExtended" color="primary" icon="create"></button><br><br><br>
+      <!-- <button mdc-button (click)="fabExtended = ! fabExtended">io</button>
+      < -->
+      <button mdc-icon-button icon="explore"></button>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-toolbar [ngStyle]="styles.appBar" [@appearence]="appBarState" [style.transform]="'translateY(100%)'" id="app-bar" color=""
-    #appBar>
-    <mat-toolbar-row #titleRow>
-      <button [matTooltip]="'Site Menu'" mat-icon-button (click)="adaptiveAction()">
-        <mat-icon *ngIf="iconHidden">{{icon}}</mat-icon>
-        <mat-icon *ngIf="!iconHidden">clear</mat-icon>
-      </button>
-      <span *ngIf="iconHidden">{{title}}</span>
-      <span *ngIf="!iconHidden">Menu</span>
-    </mat-toolbar-row>
-    <mat-toolbar-row>Hi</mat-toolbar-row>
-  </mat-toolbar>
-  <mat-sidenav-content (scroll)="toggleToolbar($event)">
+  <mat-sidenav-content id="container" (scroll)="toggleToolbar($event)">
     <app-universal-progress id="progressBar"></app-universal-progress>
     <!-- <button (click)="appBarState = appBarState == 'visible' ? 'hidden' : 'visible'">Hello</button> -->
-
-    <router-outlet></router-outlet>
+    <mat-toolbar [ngStyle]="styles.appBar" [@appearence]="appBarState" [style.transform]="'translateY(100%)'" id="app-bar"
+      color="" #appBar>
+      <mat-toolbar-row #titleRow>
+        <button *ngIf="false" [matTooltip]="'Site Menu'" mat-icon-button (click)="adaptiveAction()">
+          <mat-icon *ngIf="iconHidden">{{icon}}</mat-icon>
+          <mat-icon *ngIf="!iconHidden">clear</mat-icon>
+        </button>
+        <span *ngIf="iconHidden">{{title}}</span>
+        <span *ngIf="!iconHidden">Menu</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <!-- <div [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''" id="container-card"> -->
+    <router-outlet #o="outlet"></router-outlet>
     <app-fab></app-fab>
   </mat-sidenav-content>
 </mat-sidenav-container>

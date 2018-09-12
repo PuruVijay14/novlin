@@ -1,39 +1,53 @@
 @import "~@angular/material/theming";
+@import "~@angular-mdc/theme/material";
+
 .sidenav-container {
   height: 100%;
   background: white;
 }
 
 .sidenav {
-  width: 200px;
-  box-shadow: 3px 0 6px rgba(0, 0, 0, .24);
+  padding: 15px;
+  // box-shadow: 3px 0 6px rgba(0, 0, 0, .24);
+  background: white;
+
+}
+
+mat-sidenav-content {
+  background: white;
 }
 
 $border-radius: 8px;
 
 #app-bar {
   background: white;
-  position: fixed;
+  position: sticky;
   right: 0;
   left: 0;
+  top: auto;
   margin-right: auto;
   margin-left: auto;
-  @include mat-elevation(8);
-
+  // @include mat-elevation(8);
+  color: #ffffff;
 }
 
 #app-bar span {
   font-family: 'Roboto';
-  font-weight: 400;
+  font-weight: 300;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 640px) {
   #app-bar {
     width: 100%;
     border-radius: 0;
   }
+
   app-fab {
     bottom: 29px !important;
+  }
+
+  #container-card {
+    margin-right: 0 !important;
   }
 }
 
@@ -49,4 +63,26 @@ app-fab {
   position: fixed;
   z-index: 9997;
   width: 100%;
+}
+
+#container-card {
+  @include mat-elevation(8);
+  margin-right: 10%;
+  border-radius: 10px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  flex-grow: 1;
+  display: flex;
+  align-items: stretch;
+  padding: 0;
+}
+
+router-outlet {
+  width: 200%;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }

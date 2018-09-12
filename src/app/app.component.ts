@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
-import { filter, map, mergeMap } from "rxjs/operators";
-import { Title, DomSanitizer, Meta } from "@angular/platform-browser";
+import { AngularFireAuth } from "@angular/fire/auth";
 import { MatIconRegistry } from "@angular/material";
-import { AngularFireAuth } from "angularfire2/auth";
+import { DomSanitizer, Meta, Title } from "@angular/platform-browser";
+import { ActivatedRoute, Router } from "@angular/router";
+import { filter, map, mergeMap } from "rxjs/operators";
 
 @Component({
   selector: "app-root",

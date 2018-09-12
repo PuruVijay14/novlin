@@ -1,33 +1,26 @@
 import { LayoutModule } from "@angular/cdk/layout";
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
-import {
-  MatIconModule,
-  MatListModule,
-  MatRippleModule,
-  MatSidenavModule,
-  MatToolbarModule,
-  MatTooltipModule,
-  MatInputModule,
-  MatProgressBarModule
-} from "@angular/material";
-import { MatButtonModule } from "@angular/material/button";
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatCardModule, MatIconModule, MatInputModule, MatListModule, MatProgressBarModule, MatRippleModule, MatSidenavModule, MatToolbarModule, MatTooltipModule } from "@angular/material";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ServiceWorkerModule } from "@angular/service-worker";
-import { AngularFireModule } from "angularfire2";
-import { AngularFireAuthModule } from "angularfire2/auth";
 import { environment } from "../environments/environment";
 import { AppNavComponent } from "./app-nav/app-nav.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { IndexComponent } from "./index/index.component";
-import { SignInUpComponent } from "./sign-in-up/sign-in-up.component";
 import { CreateUsernameComponent } from './create-username/create-username.component';
 import { FabComponent } from './fab/fab.component';
+import { IndexComponent } from "./index/index.component";
+import { InterestsSignupComponent } from './interests-signup/interests-signup.component';
+import { SignInUpComponent } from "./sign-in-up/sign-in-up.component";
 import { UniversalProgressComponent } from './universal-progress/universal-progress.component';
-import { AngularFirestoreModule } from "../../node_modules/angularfire2/firestore";
-import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+
+import { MdcButtonModule, MdcFabModule, MdcIconButtonModule } from "@angular-mdc/web";
 
 @NgModule({
   declarations: [
@@ -37,7 +30,8 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
     IndexComponent,
     CreateUsernameComponent,
     FabComponent,
-    UniversalProgressComponent
+    UniversalProgressComponent,
+    InterestsSignupComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +43,6 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
     BrowserAnimationsModule,
     LayoutModule,
     MatToolbarModule,
-    MatButtonModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
@@ -57,11 +50,15 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
     MatRippleModule,
     MatInputModule,
     MatProgressBarModule,
+    MatCardModule,
     HttpClientModule,
     AngularFireAuthModule,
     AngularFirestoreModule.enablePersistence(),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MdcButtonModule,
+    MdcFabModule,
+    MdcIconButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

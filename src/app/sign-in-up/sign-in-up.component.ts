@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { AppBarService } from "../services/app-bar.service";
 import { Router } from "@angular/router";
+import { AngularFireAuth } from "@angular/fire/auth";
+import { AppBarService } from "../services/app-bar.service";
 import { AuthService } from "../services/auth.service";
-import { AngularFireAuth } from "angularfire2/auth";
 import { UnivProgress } from "../services/univ-progress.service";
 
 // import * as firebase from "firebase";
@@ -19,7 +19,7 @@ export class SignInUpComponent implements OnInit {
     public auth: AuthService,
     public afAuth: AngularFireAuth,
     public univProgress: UnivProgress
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.appBar.state$.next({

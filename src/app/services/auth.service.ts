@@ -1,11 +1,10 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { AngularFireAuth } from "angularfire2/auth";
-import { AngularFirestore } from "angularfire2/firestore";
-import * as firebase from "firebase/app";
+import { AngularFireAuth } from "@angular/fire/auth";
+import { AngularFirestore } from "@angular/fire/firestore";
 import { Router } from "@angular/router";
 import { UserCredential } from "@firebase/auth-types";
-import { HttpClient, HttpParams } from "@angular/common/http";
-import { environment } from "../../environments/environment";
+import * as firebase from "firebase/app";
 
 @Injectable({
   providedIn: "root"
@@ -16,7 +15,7 @@ export class AuthService {
     private router: Router,
     private afStore: AngularFirestore,
     private http: HttpClient
-  ) {}
+  ) { }
 
   async signIn() {
     await this.afAuth.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
