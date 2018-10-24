@@ -1,0 +1,16 @@
+:host {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+div.container {
+  display: flex;
+  flex-direction: column;
+  width: 61.8%;
+
+  mat-chip-list {
+    display: flex;
+    flex-direction: row;
+  }
+}

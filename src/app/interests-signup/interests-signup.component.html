@@ -1,3 +1,10 @@
-<p>
-  interests-signup works!
-</p>
+<div class="container">
+  <h1>Choose at least 3 Topics</h1>
+  <mat-chip-list class="mat-chip-list" aria-orientation="horizontal" *ngIf="interest$ | async;let interests; else loading" 
+    selectable="true" multiple>
+      <mat-chip color="primary" *ngFor="let interest of interests">{{interest?.id | uppercase}}</mat-chip>
+  </mat-chip-list>
+  <ng-template #loading>
+    <mat-spinner diameter="50" mode="indeterminate"></mat-spinner>
+  </ng-template>
+</div>

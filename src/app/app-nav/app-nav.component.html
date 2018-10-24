@@ -1,10 +1,10 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true" mode="side" [opened]="sidenavOpened">
     <mat-nav-list>
-      <button mdc-fab [extended]="fabExtended" color="primary" icon="create"></button><br><br><br>
+      <button mat-fab color="primary"><mat-icon>create</mat-icon></button><br><br><br>
       <!-- <button mdc-button (click)="fabExtended = ! fabExtended">io</button>
       < -->
-      <button mdc-icon-button icon="explore"></button>
+      <button mat-icon-button><mat-icon>explore</mat-icon></button>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content id="container" (scroll)="toggleToolbar($event)">

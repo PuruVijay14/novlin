@@ -28,7 +28,7 @@ const createUsername = functions.https.onRequest(async (request, response) => {
         .doc(`users/${request.body.email}`)
         .set({
           isSetUp: true,
-          userame: request.body
+          username: request.body
         }, {
           merge: true
         });
