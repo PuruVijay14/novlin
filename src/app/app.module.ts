@@ -5,7 +5,8 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { MatCardModule, MatIconModule, MatInputModule, MatListModule, MatProgressBarModule, MatRippleModule, MatSidenavModule, MatToolbarModule, MatTooltipModule, MatButtonModule, MatChipsModule, MatProgressSpinnerModule } from "@angular/material";
+// tslint:disable-next-line:max-line-length
+import { MatButtonModule, MatCardModule, MatChipsModule, MatIconModule, MatInputModule, MatListModule, MatProgressBarModule, MatProgressSpinnerModule, MatRippleModule, MatSidenavModule, MatToolbarModule, MatTooltipModule } from "@angular/material";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ServiceWorkerModule } from "@angular/service-worker";
@@ -13,23 +14,17 @@ import { environment } from "../environments/environment";
 import { AppNavComponent } from "./app-nav/app-nav.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { CreateUsernameComponent } from './create-username/create-username.component';
 import { FabComponent } from './fab/fab.component';
 import { IndexComponent } from "./index/index.component";
-import { InterestsSignupComponent } from './interests-signup/interests-signup.component';
-import { SignInUpComponent } from "./sign-in-up/sign-in-up.component";
 import { UniversalProgressComponent } from './universal-progress/universal-progress.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppNavComponent,
-    SignInUpComponent,
     IndexComponent,
-    CreateUsernameComponent,
     FabComponent,
     UniversalProgressComponent,
-    InterestsSignupComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestoreCollection, AngularFirestore, DocumentData } from "@angular/fire/firestore"
-import { Observable } from 'rxjs';
-import { map } from "rxjs/operators";
+import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/firestore";
 
 @Component({
   selector: 'app-interests-signup',
@@ -15,7 +13,7 @@ export class InterestsSignupComponent implements OnInit {
 
   constructor(private afs: AngularFirestore) {
     this.interestsCollectionRef = this.afs.collection('interests');
-    this.interest$ = this.interestsCollectionRef.valueChanges()/* .forEach(data => data.forEach(interest => this.interests.push(interest))); */
+    this.interest$ = this.interestsCollectionRef.valueChanges();
     console.log(this.interests);
   }
 
