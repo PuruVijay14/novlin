@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { FormControl, FormGroupDirective, NgForm, Validators } from "@angular/forms";
 import { ErrorStateMatcher } from "@angular/material/core";
@@ -41,7 +42,8 @@ export class CreateUsernameComponent implements OnInit {
 
   constructor(
     private afStore: AngularFirestore,
-    private router: Router
+    private router: Router,
+    private afAuth: AngularFireAuth
   ) { }
 
   ngOnInit() {
@@ -77,10 +79,11 @@ export class CreateUsernameComponent implements OnInit {
           if (data.length === 0) {
             // The user doesn't exists
             // Write the username to firestore
-            await this.afStore.doc(`users/${localStorage.getItem("email")}`).set(
+            await this.afStore.doc(`users/${this.afAuth.auth.currentUser.uid}`).set(
               {
+                email: this.afAuth.auth.currentUser.email,
                 username: value,
-                isSetUp: true
+                isSetUp: true,
               },
               { merge: true }
             );
