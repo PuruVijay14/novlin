@@ -4,9 +4,6 @@ import { NgModule } from "@angular/core";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-// tslint:disable-next-line:max-line-length
-import { MatButtonModule, MatCardModule, MatChipsModule, MatIconModule, MatInputModule, MatListModule, MatProgressBarModule, MatProgressSpinnerModule, MatRippleModule, MatSidenavModule, MatToolbarModule, MatTooltipModule } from "@angular/material";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ServiceWorkerModule } from "@angular/service-worker";
@@ -16,7 +13,9 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { FabComponent } from './fab/fab.component';
 import { IndexComponent } from "./index/index.component";
+import { MaterialModule } from "./modules/material/material.module";
 import { UniversalProgressComponent } from './universal-progress/universal-progress.component';
+import { SharedModuleModule } from "./modules/shared-module/shared-module.module";
 
 @NgModule({
   declarations: [
@@ -35,23 +34,11 @@ import { UniversalProgressComponent } from './universal-progress/universal-progr
     AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,
     LayoutModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatTooltipModule,
-    MatRippleModule,
-    MatInputModule,
-    MatProgressBarModule,
-    MatCardModule,
     HttpClientModule,
     AngularFireAuthModule,
     AngularFirestoreModule.enablePersistence(),
-    ReactiveFormsModule,
-    FormsModule,
-    MatButtonModule,
-    MatChipsModule,
-    MatProgressSpinnerModule
+    SharedModuleModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

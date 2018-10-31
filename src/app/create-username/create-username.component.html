@@ -1,9 +1,9 @@
 <div class="container">
   <h1 *ngIf="!headingHidden">Create Username</h1>
   <form >
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <input (onkeydown)="verifyInput()" [formControl]="userFormControl" [errorStateMatcher]="matcher" #input="matInput" (keyup.enter)="createUser()" autofocus matInput
-        placeholder="">
+        >
         <mat-hint>Ex: ClaryFray6,<br>harry-potter_wand </mat-hint>
         <mat-error *ngIf="userFormControl.hasError('pattern')">Only a-z 09 and -_ no spaces</mat-error>
         <mat-error *ngIf="userFormControl.hasError('required')">This field is required</mat-error>
@@ -13,4 +13,4 @@
       <mat-icon>arrow_forward</mat-icon>
     </button>
   </form>
-</div>
+</div> 

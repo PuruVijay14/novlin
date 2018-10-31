@@ -1,10 +1,14 @@
 <div class="container">
   <h1>Choose at least 3 Topics</h1>
-  <mat-chip-list class="mat-chip-list" aria-orientation="horizontal" *ngIf="interest$ | async;let interests; else loading" 
+  <mat-chip-list #chipList="matChipList" class="mat-chip-list" aria-orientation="horizontal" *ngIf="interest$ | async;let interests; else loading"
     selectable="true" multiple>
-      <mat-chip color="primary" *ngFor="let interest of interests">{{interest?.id | uppercase}}</mat-chip>
+    <mat-chip color="primary" (click)="selectInterest($event, i)" (keydown.enter)="selectInterest($event, i)" *ngFor="let interest of interests; let i = index"
+      tabindex="{{i}}">{{interest?.id | uppercase}}</mat-chip>
   </mat-chip-list>
   <ng-template #loading>
-    <mat-spinner diameter="50" mode="indeterminate"></mat-spinner>
+    <div class="loader">
+      <mat-spinner diameter="50" mode="indeterminate"></mat-spinner>
+    </div>
   </ng-template>
+  <button id="submit-button" mat-fab><mat-icon>arrow_forward</mat-icon></button>
 </div>

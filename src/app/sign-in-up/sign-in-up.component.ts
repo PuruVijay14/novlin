@@ -1,9 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AppBarService } from "../services/app-bar.service";
 import { AuthService } from "../services/auth.service";
 import { UnivProgress } from "../services/univ-progress.service";
+import { MatRipple } from "@angular/material";
 
 // import * as firebase from "firebase";
 
@@ -13,6 +14,8 @@ import { UnivProgress } from "../services/univ-progress.service";
   styleUrls: ["./sign-in-up.component.scss"]
 })
 export class SignInUpComponent implements OnInit {
+  @ViewChild(MatRipple) ripple: MatRipple;
+
   constructor(
     private appBar: AppBarService,
     public router: Router,
@@ -27,6 +30,10 @@ export class SignInUpComponent implements OnInit {
       payload: null
     });
 
+
+    /** launch the ripple */
+ 
+
     this.afAuth.authState.subscribe(async state => {
       /**ONLY FOR TESTING REMOVE IT!!!!!!!!!!!!!!!!!  */
       console.log(await this.afAuth.auth.getRedirectResult());
@@ -40,4 +47,14 @@ export class SignInUpComponent implements OnInit {
       }
     });
   }
+
+/*   promptRipple() {
+    const rippleRef = this.ripple.launch({
+      persistent: true,
+      centered: true,
+      radius: 100
+    });
+    setTimeout(() => rippleRef.fadeOut(), 1000);
+  } */
+
 }

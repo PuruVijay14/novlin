@@ -28,11 +28,27 @@ const routes: Routes = [
         pathMatch: "full"
     },
     {
-        path: 'auth',
-        loadChildren: './feature-modules/signup/signup.module#SignupModule'
+        path: 'chooseinterests',
+        loadChildren: './interests-signup/interests-signup.module#InterestsSignupModule'
+    },
+    {
+        path: 'createusername',
+        loadChildren: './create-username/create-username.module#CreateUsernameModule'
+    },
+    {
+        path: 'login',
+        loadChildren: './sign-in-up/sign-in-up.module#SignInUpModule',
+        data: {
+            title: 'Login'
+        }
+    },
+    {
+        path: 'signup',
+        loadChildren: './sign-in-up/sign-in-up.module#SignInUpModule',
+        data: {
+            title: 'Become a member'
+        }
     }
-
-
 ];
 
 @NgModule({

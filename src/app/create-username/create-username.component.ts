@@ -88,7 +88,7 @@ export class CreateUsernameComponent implements OnInit {
               { merge: true }
             );
 
-            this.router.navigate(["home/welcome"]);
+            this.router.navigate(["chooseinterests"]);
           } else {
             // User exists
             // Output warning

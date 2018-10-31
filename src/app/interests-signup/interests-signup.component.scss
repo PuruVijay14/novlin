@@ -14,3 +14,27 @@ div.container {
     flex-direction: row;
   }
 }
+
+@media only screen and (max-width: 731px) {
+  div.container {
+    width: 95%;
+  }
+
+  #submit-button {
+    right: 9% !important;
+    bottom: 5% !important;
+  }
+
+}
+
+.loader {
+  display: flex;
+  flex-direction: row;
+}
+
+#submit-button {
+  position: fixed;
+  z-index: 9899;
+  bottom: 7%;
+  right: 19%;
+}
