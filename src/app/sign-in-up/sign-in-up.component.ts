@@ -30,20 +30,17 @@ export class SignInUpComponent implements OnInit {
       payload: null
     });
 
-
-    /** launch the ripple */
- 
-
     this.afAuth.authState.subscribe(async state => {
       /**ONLY FOR TESTING REMOVE IT!!!!!!!!!!!!!!!!!  */
-      console.log(await this.afAuth.auth.getRedirectResult());
+      // console.log(await this.afAuth.auth.getRedirectResult());
       // this.univProgress.progressState$.next({
       //   id: "authSignInClicked",
       //   payload: null
       // });
       if (state) {
+        this.univProgress.progressState$.next({ id: "authSignInClicked", payload: null });
         this.auth.afterLogin(await this.afAuth.auth.getRedirectResult());
-        // this.univProgress.progressState$.next({ id: null, payload: null });
+        this.univProgress.progressState$.next({ id: null, payload: null });
       }
     });
   }

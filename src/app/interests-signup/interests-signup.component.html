@@ -2,7 +2,7 @@
   <h1>Choose at least 3 Topics</h1>
   <mat-chip-list #chipList="matChipList" class="mat-chip-list" aria-orientation="horizontal" *ngIf="interest$ | async;let interests; else loading"
     selectable="true" multiple>
-    <mat-chip color="primary" (click)="selectInterest($event, i)" (keydown.enter)="selectInterest($event, i)" *ngFor="let interest of interests; let i = index"
+    <mat-chip color="primary" (click)="selectInterest(i)" (keydown.enter)="selectInterest(i)" (keydown.space)="selectInterest(i)" *ngFor="let interest of interests; let i = index"
       tabindex="{{i}}">{{interest?.id | uppercase}}</mat-chip>
   </mat-chip-list>
   <ng-template #loading>
@@ -10,5 +10,6 @@
       <mat-spinner diameter="50" mode="indeterminate"></mat-spinner>
     </div>
   </ng-template>
-  <button id="submit-button" mat-fab><mat-icon>arrow_forward</mat-icon></button>
+  <button id="submit-button" (click)="setInterests()" [disabled]="disabled" mat-fab><mat-icon>arrow_forward</mat-icon></button>
 </div>
+        

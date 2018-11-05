@@ -18,6 +18,7 @@ export class AuthService {
   ) { }
 
   async signIn() {
+    window.sessionStorage.setItem('pending', `${true}`);
     await this.afAuth.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
     try {
       const data = this.afAuth.auth.signInWithRedirect(

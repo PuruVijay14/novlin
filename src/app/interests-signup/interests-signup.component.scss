@@ -1,3 +1,8 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+@import '../../variables.scss';
+
 :host {
   width: 100%;
   display: flex;
@@ -37,4 +42,21 @@ div.container {
   z-index: 9899;
   bottom: 7%;
   right: 19%;
+}
+
+mat-chip {
+/*   background-color: white !important;
+  border: 1px solid mat-color($novlin-light-primary);
+  color: mat-color($novlin-light-primary) !important; */
+
+  &:hover {
+    cursor: pointer;
+  }
+  
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
