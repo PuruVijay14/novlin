@@ -1,17 +1,11 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  ElementRef,
-  TemplateRef
-} from "@angular/core";
-import { appearence } from "../animations/app-bar";
-import { AppBarService } from "../services/app-bar.service";
+import { BreakpointObserver, Breakpoints, BreakpointState } from "@angular/cdk/layout";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { MatDrawer } from "@angular/material";
 import { Router } from "@angular/router";
-import { MatDrawer, MatToolbarRow } from "@angular/material";
-import { AuthService } from "../services/auth.service";
+import { appearence } from "../animations/app-bar";
 import { fadeAnimation } from "../animations/routing";
-import { BreakpointObserver, Breakpoints, BreakpointState } from "@angular/cdk/layout"
+import { AppBarService } from "../services/app-bar.service";
+import { AuthService } from "../services/auth.service";
 
 @Component({
   selector: "app-nav",
@@ -48,15 +42,25 @@ export class AppNavComponent implements OnInit {
     }
   };
 
-  fabExtended: boolean = false;
+  fabExtended = false;
 
   sidenavOpened = true;
+
+  fullPageRippleStyle = {
+    left: 0,
+    top: 0,
+    display: 'none',
+    transform: 'scale(1, 1)'
+  };
+
+  @ViewChild('FullPageRipple') fullPageRippleElement: ElementRef;
 
   constructor(
     public appBarService: AppBarService,
     public router: Router,
     private authService: AuthService,
-    public breakpointObserver: BreakpointObserver
+    public breakpointObserver: BreakpointObserver,
+    elementRef: ElementRef
   ) { }
 
   handleNav() {
@@ -75,12 +79,8 @@ export class AppNavComponent implements OnInit {
     this.breakpointObserver
       .observe(Breakpoints.HandsetPortrait)
       .subscribe((state: BreakpointState) => {
-        if (state.matches) {
-          this.sidenavOpened = false;
-        } else {
-          this.sidenavOpened = true;
-        }
-      });
+        this.sidenavOpened = state.matches ? false : true;
+      }).unsubscribe();
 
     this.appBarState = "visible";
     this.adaptiveNavbar();
@@ -141,4 +141,15 @@ export class AppNavComponent implements OnInit {
       }
     });
   }
+
+  OpenFullPageRipple() {
+    this.fullPageRippleStyle.display = 'block';
+    /* var i = 2;
+    setInterval(() => {
+      requestAnimationFrame(() =>
+        this.fullPageRippleStyle.transform = `scale(${i}, ${i})`;
+      i **= 2;
+    }, 1); */
+  }
+
 }

@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/firestore";
 import { MatChipList, MatChip } from '@angular/material';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-interests-signup',
@@ -20,7 +21,7 @@ export class InterestsSignupComponent {
   /** The chiplist */
   @ViewChild('chipList') chipList: MatChipList;
 
-  constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth) {
+  constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth, private router: Router) {
     this.interestsCollectionRef = this.afs.collection('interests');
     this.interest$ = this.interestsCollectionRef.valueChanges();
 
@@ -63,6 +64,9 @@ export class InterestsSignupComponent {
     }, {
         merge: true
       });
+
+    // Head to welcome page
+    this.router.navigate(['home', 'welcome']);
 
   }
 }

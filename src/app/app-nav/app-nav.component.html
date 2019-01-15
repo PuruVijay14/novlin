@@ -1,13 +1,17 @@
-<mat-sidenav-container class="sidenav-container">
+<div id="FullPageRippleElement" [ngStyle]="fullPageRippleStyle" #FullPageRipple></div>
+<mat-sidenav-container  class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true" mode="side" [opened]="sidenavOpened">
     <mat-nav-list>
-      <button mat-fab color="primary"><mat-icon>create</mat-icon></button><br><br><br>
-      <!-- <button mdc-button (click)="fabExtended = ! fabExtended">io</button>
-      < -->
-      <button mat-icon-button><mat-icon>explore</mat-icon></button>
+      <button (click)="OpenFullPageRipple()" mat-fab color="primary"  matTooltip="WRITE">
+        <mat-icon>create</mat-icon>
+      </button>
+      <br><br><br>
+      <button mat-icon-button>
+        <mat-icon svgIcon="icons:explore"></mat-icon>
+      </button>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content id="container" (scroll)="toggleToolbar($event)">
+  <mat-sidenav-content  id="container" (scroll)="toggleToolbar($event)">
     <app-universal-progress id="progressBar"></app-universal-progress>
     <!-- <button (click)="appBarState = appBarState == 'visible' ? 'hidden' : 'visible'">Hello</button> -->
     <mat-toolbar [ngStyle]="styles.appBar" [@appearence]="appBarState" [style.transform]="'translateY(100%)'" id="app-bar"

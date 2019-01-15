@@ -54,6 +54,11 @@ export class AppComponent implements OnInit {
       `google`,
       this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/auth/google-icon.svg")
     );
+    this.matIconRegistry.addSvgIconInNamespace(
+      `icons`,
+      'explore',
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/icons/outline-explore-24px.svg")
+    );
   }
    getRandomRGBValue() {
     return Math.min(Math.floor(Math.random() * 255 + 1), 255);

@@ -85,3 +85,13 @@ router-outlet {
   flex-direction: column;
   overflow-x: hidden;
 }
+
+#FullPageRippleElement {
+  position: fixed;
+  z-index: 99999;
+  background: #6200ea;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  display: none;
+}
